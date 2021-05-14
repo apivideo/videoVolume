@@ -1,0 +1,53 @@
+<html>
+    <head>
+    ...
+    <script src="https://unpkg.com/@api.video/player-sdk" ></script>
+    </head>
+
+    <body>
+        <div id="target" style="align:center;width:75%;">
+
+        </div>
+        <p id="text"></p>
+    </body>
+
+    <script type="text/javascript">
+        window.player = new PlayerSdk("#target", { 
+            id: "vi4blUQJFrYWbaG44NChkH27", 
+            autoplay:true,
+            muted:true
+        });
+        
+        window.onload = function(){
+            var warning=false;
+            player.addEventListener('volumechange', function(volume) { 
+            var vol = volume.volume;
+                console.log(`volume has changed: ${vol}`); 
+                if(vol >0.50){
+                    console.log("too loud!");
+                    if(warning){
+                        //they've been warned
+                        document.body.style.backgroundColor = "red";
+                        document.getElementById("text").innerHTML= "THIS IS LOUD";
+                    }
+                    else{
+                        //warn user
+                        warning=true;
+                        player.setVolume(.5);
+                        document.getElementById("text").innerHTML= "Are you sure? Loud volumes can damage hearing";
+                    }
+                }else if(vol<.50){
+                        warning=false;
+                        document.body.style.backgroundColor = "green";
+                        document.getElementById("text").innerHTML="Nice and soft.";
+                    }
+                else{
+                    document.getElementById("text").innerHTML= "Are you sure? Loud volumes can damage hearing";
+                }
+
+            });
+        }
+        
+    </script>
+
+</html>
