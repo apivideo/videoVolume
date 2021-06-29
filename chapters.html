@@ -1,0 +1,62 @@
+<html>
+    <head>
+    ...
+    <script src="https://unpkg.com/@api.video/player-sdk" ></script>
+    </head>
+
+    <body>
+        <div id="target" style="align:center;width:75%;">
+        </div>
+        <p id="text"></p>
+        <button id ="bunnyWakes">Bunny wakes</button><br/>
+        <button id ="Butterfly">Butterfly</button><br/>
+        <button id ="Plotting">Plotting</button><br/>
+        <button id ="Construction">Construction</button><br/>
+        <button id ="Bow">Bow</button><br/>
+        <button id ="Falling">Falling Stuff</button><br/>
+        <button id ="FlyingSquirrel">FlyingSquirrel</button><br/>
+        <button id ="Kite">Kite</button><br/>
+        <button id ="Post">Post Credits</button><br/>
+    </body>
+
+    <script type="text/javascript">
+        window.player = new PlayerSdk("#target", { 
+            id: "vi1UQBDAMqAPCRxB3dmw1thc", 
+            autoplay:true,
+            muted:true
+        });
+        
+        window.onload = function(){
+            document.getElementById("bunnyWakes").addEventListener("click", function() {
+                player.setCurrentTime(34);
+            });
+            document.getElementById("Butterfly").addEventListener("click", function() {
+                player.setCurrentTime(77);
+            });
+            document.getElementById("Plotting").addEventListener("click", function() {
+                player.setCurrentTime(150);
+            });
+            document.getElementById("Construction").addEventListener("click", function() {
+                player.setCurrentTime(252);
+            });
+            document.getElementById("Bow").addEventListener("click", function() {
+                player.setCurrentTime(315);
+            });
+            document.getElementById("Falling").addEventListener("click", function() {
+                player.setCurrentTime(342);
+            });
+            document.getElementById("FlyingSquirrel").addEventListener("click", function() {
+                player.setCurrentTime(395);
+            });
+            document.getElementById("Kite").addEventListener("click", function() {
+                player.setCurrentTime(462);
+            });
+            document.getElementById("Post").addEventListener("click", function() {
+                player.setCurrentTime(581);
+            });
+
+        }
+        
+    </script>
+
+</html>
